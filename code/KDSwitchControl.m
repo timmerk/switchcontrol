@@ -50,9 +50,12 @@
 - (id)initWithFrame:(NSRect)frame {
 	[super initWithFrame:frame];
 	
+	[self setWantsLayer:YES];
+	
 	_bindingInfo = [[NSMutableDictionary alloc] init];
 	
-	[self setWantsLayer:YES];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NSApplicationDidBecomeActiveNotification object:NSApp];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NSApplicationDidResignActiveNotification object:NSApp];
 	
 	return self;
 }
@@ -80,13 +83,13 @@
 - (void)viewWillMoveToSuperview:(NSView *)view {
 	[super viewWillMoveToSuperview:view];
 	
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidResignKeyNotification object:[self window]];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidBecomeKeyNotification object:[self window]];
+	
+	if (view == nil) return;
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NSWindowDidResignKeyNotification object:[view window]];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NSWindowDidBecomeKeyNotification object:[view window]];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NSApplicationDidBecomeActiveNotification object:NSApp];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NSApplicationDidResignActiveNotification object:NSApp];
 }
 
 NS_INLINE NSRect InsetTextRect(NSRect textRect) {
