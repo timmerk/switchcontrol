@@ -81,11 +81,10 @@
 }
 
 - (void)viewWillMoveToSuperview:(NSView *)view {
-	[super viewWillMoveToSuperview:view];
-	
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidResignKeyNotification object:[self window]];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidBecomeKeyNotification object:[self window]];
 	
+	[super viewWillMoveToSuperview:view];
 	if (view == nil) return;
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NSWindowDidResignKeyNotification object:[view window]];
@@ -122,7 +121,7 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 - (void)drawRect:(NSRect)frame {
 	NSRect textRects[2], backgroundRect;
 	PartRects([self bounds], textRects, &backgroundRect);
-		
+	
 	if ([self needsToDrawRect:textRects[0]] || [self needsToDrawRect:textRects[1]]) {		
 		NSShadow *textShadow = [[NSShadow alloc] init];
 		[textShadow setShadowColor:[NSColor whiteColor]];
