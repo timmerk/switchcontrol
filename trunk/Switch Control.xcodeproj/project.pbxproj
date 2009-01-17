@@ -38,35 +38,35 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53EE97470F190070008AD8C0 /* AmberKit.framework */;
+			remoteGlobalIDString = 53EE97470F190070008AD8C0;
 			remoteInfo = AmberKit;
 		};
 		539BFE7C0F1FE73F003C1148 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53692D070F1B90120051C367 /* AmberKitAdditions.framework */;
+			remoteGlobalIDString = 53692D070F1B90120051C367;
 			remoteInfo = "AmberKit Additions";
 		};
 		539BFE7E0F1FE73F003C1148 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 532F73DE0F0EB1AA004D6056 /* libAmberFoundation.a */;
+			remoteGlobalIDString = 532F73DE0F0EB1AA004D6056;
 			remoteInfo = "AmberFoundation Touch";
 		};
 		539BFE800F1FE73F003C1148 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53EE97550F190089008AD8C0 /* Core Networking.framework */;
+			remoteGlobalIDString = 53EE97550F190089008AD8C0;
 			remoteInfo = "Core Networking";
 		};
 		539BFE8B0F1FE790003C1148 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 53692D060F1B90120051C367 /* AmberKit Additions */;
+			remoteGlobalIDString = 53692D060F1B90120051C367;
 			remoteInfo = "AmberKit Additions";
 		};
 /* End PBXContainerItemProxy section */

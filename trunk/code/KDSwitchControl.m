@@ -127,12 +127,12 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 		[textShadow setShadowColor:[NSColor whiteColor]];
 		[textShadow setShadowOffset:NSMakeSize(0, -1.5)];
 		[textShadow setShadowBlurRadius:0.0];
-				
+		
 		[NSGraphicsContext saveGraphicsState];
 		[textShadow set];
 		
 		[[NSColor colorWithCalibratedWhite:(74.0/255.0) alpha:1.0] set];
-		AFDrawStringAlignedInFrame(@"OFF", [NSFont boldSystemFontOfSize:0], NSCenterTextAlignment, textRects[0]);
+		AFDrawStringAlignedInFrame(@"OFF", [NSFont boldSystemFontOfSize:0], NSCenterTextAlignment, NSIntegralRect(textRects[0]));
 		
 		[NSGraphicsContext restoreGraphicsState];
 		
@@ -148,7 +148,7 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 			[[NSColor colorWithCalibratedWhite:(74.0/255.0) alpha:1.0] set];
 		}
 		
-		AFDrawStringAlignedInFrame(@"ON", [NSFont boldSystemFontOfSize:0], NSCenterTextAlignment, textRects[1]);
+		AFDrawStringAlignedInFrame(@"ON", [NSFont boldSystemFontOfSize:0], NSCenterTextAlignment, NSIntegralRect(textRects[1]));
 #else
 		[[NSGradient sourceListSelectionGradientIsKey:([self state] == NSOnState && [[self window] isKeyWindow])] drawInBezierPath:textPath angle:-90.0];
 #endif
@@ -162,7 +162,7 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 	NSGradient *backgroundGradient = nil;
 	
 	radius = BackgroundRadiusForRect(backgroundRect);
-	backgroundPath = [NSBezierPath bezierPathWithRoundedRect:backgroundRect xRadius:radius yRadius:radius];
+	backgroundPath = [NSBezierPath bezierPathWithRoundedRect:NSIntegralRect(backgroundRect) xRadius:radius yRadius:radius];
 	backgroundGradient = [[NSGradient alloc] initWithColors:[NSArray arrayWithObjects:[NSColor colorWithCalibratedWhite:(80.0/255.0) alpha:0.9], [NSColor colorWithCalibratedWhite:(129.0/255.0) alpha:0.9], nil]];
 	
 	[backgroundGradient drawInBezierPath:backgroundPath angle:-90];
@@ -171,7 +171,7 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 	NSRect insetBackgroundRect = InsetBackgroundRect(backgroundRect);
 	
 	radius = BackgroundRadiusForRect(insetBackgroundRect);
-	backgroundPath = [NSBezierPath bezierPathWithRoundedRect:insetBackgroundRect xRadius:radius yRadius:radius];
+	backgroundPath = [NSBezierPath bezierPathWithRoundedRect:NSIntegralRect(insetBackgroundRect) xRadius:radius yRadius:radius];
 	backgroundGradient = [[NSGradient alloc] initWithColorsAndLocations:[NSColor colorWithCalibratedWhite:(99.0/255.0) alpha:1.0], 0.0, [NSColor colorWithCalibratedWhite:(142.0/255.0) alpha:1.0], 0.3, [NSColor colorWithCalibratedWhite:(171.0/255.0) alpha:1.0], 1.0, nil];
 	
 	[backgroundGradient drawInBezierPath:backgroundPath angle:-90];
@@ -311,9 +311,10 @@ void *SelectedIndexObservationContext = (void *)1000;
 - (void)_drawKnobInSlotRect:(NSRect)slotRect radius:(CGFloat)radius {
 	NSRect handleBounds = KnobRectForInsetBackground(slotRect, _floatValue);
 	
-	((KDGradientCell *)_cell).cornerRadius = radius;
+	KDGradientCell *cell = (KDGradientCell *)[self cell];
 	
-	[_cell drawBezelWithFrame:handleBounds inView:self];
+	cell.cornerRadius = radius;
+	[cell drawBezelWithFrame:NSIntegralRect(handleBounds) inView:self];
 }
 
 @end
