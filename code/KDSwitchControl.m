@@ -132,7 +132,7 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 		[textShadow set];
 		
 		[[NSColor colorWithCalibratedWhite:(74.0/255.0) alpha:1.0] set];
-		AFDrawStringAlignedInFrame(@"OFF", [NSFont boldSystemFontOfSize:0], NSCenterTextAlignment, NSIntegralRect(textRects[0]));
+		AKDrawStringAlignedInFrame(@"OFF", [NSFont boldSystemFontOfSize:0], NSCenterTextAlignment, NSIntegralRect(textRects[0]));
 		
 		[NSGraphicsContext restoreGraphicsState];
 		
@@ -148,7 +148,7 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 			[[NSColor colorWithCalibratedWhite:(74.0/255.0) alpha:1.0] set];
 		}
 		
-		AFDrawStringAlignedInFrame(@"ON", [NSFont boldSystemFontOfSize:0], NSCenterTextAlignment, NSIntegralRect(textRects[1]));
+		AKDrawStringAlignedInFrame(@"ON", [NSFont boldSystemFontOfSize:0], NSCenterTextAlignment, NSIntegralRect(textRects[1]));
 #else
 		[[NSGradient sourceListSelectionGradientIsKey:([self state] == NSOnState && [[self window] isKeyWindow])] drawInBezierPath:textPath angle:-90.0];
 #endif

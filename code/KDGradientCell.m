@@ -51,7 +51,7 @@
 	NSRect interiorRect = NSInsetRect(frame, 0, NSHeight(frame)/6.0);
 	
 	[[NSColor colorWithCalibratedWhite:0.2 alpha:1.0] set];
-	AFDrawStringAlignedInFrame([self title], [self font], NSCenterTextAlignment, interiorRect);
+	AKDrawStringAlignedInFrame([self title], [self font], NSCenterTextAlignment, interiorRect);
 }
 
 @end
