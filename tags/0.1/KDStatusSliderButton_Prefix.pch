@@ -1,8 +1,0 @@
-//
-// Prefix header for all source files of the 'KDStatusSliderButton' target in the 'KDStatusSliderButton' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-	#import "Amber/Amber.h"
-#endif
