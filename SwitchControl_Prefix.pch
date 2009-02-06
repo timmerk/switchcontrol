@@ -4,5 +4,7 @@
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
-	#import "Amber/Amber.h"
+
+	#import "AmberFoundation/AmberFoundation.h"
+	#import "AmberKitAdditions/AmberKitAdditions.h"
 #endif
