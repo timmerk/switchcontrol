@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface KDGradientButton : NSButton
+@interface AFGradientButton : NSButton
 
 @end
