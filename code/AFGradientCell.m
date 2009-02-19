@@ -6,9 +6,9 @@
 //  Copyright 2008 thirty-three software. All rights reserved.
 //
 
-#import "KDGradientCell.h"
+#import "AFGradientCell.h"
 
-@implementation KDGradientCell
+@implementation AFGradientCell
 
 @synthesize cornerRadius=_cornerRadius;
 

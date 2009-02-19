@@ -6,14 +6,14 @@
 //  Copyright 2008 thirty-three software. All rights reserved.
 //
 
-#import "KDGradientButton.h"
+#import "AFGradientButton.h"
 
-#import "KDGradientCell.h"
+#import "AFGradientCell.h"
 
-@implementation KDGradientButton
+@implementation AFGradientButton
 
 + (Class)cellClass {
-	return [KDGradientCell class];
+	return [AFGradientCell class];
 }
 
 - (BOOL)isFlipped {
@@ -21,7 +21,7 @@
 }
 
 - (void)drawRect:(NSRect)frame {	
-	((KDGradientCell *)_cell).cornerRadius = NSHeight(frame)/6.0;
+	((AFGradientCell *)_cell).cornerRadius = NSHeight(frame)/6.0;
 	
 	[super drawRect:frame];
 }

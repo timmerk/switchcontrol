@@ -3,7 +3,7 @@
 //  KDStatusSliderButton
 //
 //  Created by Keith Duncan on 26/01/2008.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
+//  Copyright 2008 thirty-three. All rights reserved.
 //
 
 //
@@ -11,23 +11,20 @@
 // It replaced my massive loop and is far more functional
 //
 
-#import "KDSwitchControl.h"
+#import "AFSwitchControl.h"
 
-#import "KDGradientCell.h"
+#import "AFGradientCell.h"
 
-#import "Amber/Amber.h"
-#import <QuartzCore/CoreAnimation.h>
-
-@interface KDSwitchControl ()
+@interface AFSwitchControl ()
 @property(assign) float floatValue;
 @property(assign) BOOL state;
 @end
 
-@interface KDSwitchControl (Private)
+@interface AFSwitchControl (Private)
 - (void)_drawKnobInSlotRect:(NSRect)bounds radius:(CGFloat)radius;
 @end
 
-@implementation KDSwitchControl
+@implementation AFSwitchControl
 
 @synthesize floatValue=_floatValue;
 
@@ -44,7 +41,7 @@
 }
 
 + (Class)cellClass {
-	return [KDGradientCell class];
+	return [AFGradientCell class];
 }
 
 - (id)initWithFrame:(NSRect)frame {
@@ -197,8 +194,8 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 	NSRect slotRect = InsetBackgroundRect(backgroundRect);
 	NSRect knobRect = KnobRectForInsetBackground(slotRect, _floatValue);
 	
-	NSPoint hitPoint = [self convertPoint:[event locationInWindow] fromView:nil];
 	BOOL state = self.state;
+	NSPoint hitPoint = [self convertPoint:[event locationInWindow] fromView:nil];
 	
 	if (![self mouse:hitPoint inRect:knobRect]) {
 		if ((state == NSOffState && NSMaxX(knobRect) < hitPoint.x) || (state == NSOnState && NSMinX(knobRect) > hitPoint.x)) [self setValue:[NSNumber numberWithUnsignedInteger:!state] forBinding:NSValueBinding];
@@ -221,6 +218,7 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 		
 		switch ([event type]) {
 			case NSLeftMouseDragged:
+			{
 				dragging = YES;
 				newPosition = mouseLocation.x - (hitPoint.x-NSMidX(knobRect));
 				
@@ -233,24 +231,26 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 				
 				self.floatValue = newFloat;
 				break;
+			}
 			case NSLeftMouseUp:
+			{
 				[[self cell] setHighlighted:NO];
 				
 				if (dragging) {
-					if (_floatValue >= 0.15 && state == NO) self.state = YES;
-					else if (_floatValue <= 0.85 && state == YES) self.state = NO;
-					else self.state = state;
+					CGFloat value = (state ? 1.0 : 0.0) + ((state ? -1 : 1) * 0.25);
+					self.state =  (_floatValue >= value);
 				} else self.state = !state;
 				
 				loop = NO;
 				break;
+			}
 		}
 	}
 }
 
 @end
 
-@implementation KDSwitchControl (KDKeyValueBinding)
+@implementation AFSwitchControl (KDKeyValueBinding)
 
 - (id)infoForBinding:(NSString *)binding {
 	id info = [_bindingInfo objectForKey:binding];
@@ -306,12 +306,12 @@ void *SelectedIndexObservationContext = (void *)1000;
 
 @end
 
-@implementation KDSwitchControl (Private)
+@implementation AFSwitchControl (Private)
 
 - (void)_drawKnobInSlotRect:(NSRect)slotRect radius:(CGFloat)radius {
 	NSRect handleBounds = KnobRectForInsetBackground(slotRect, _floatValue);
 	
-	KDGradientCell *cell = (KDGradientCell *)[self cell];
+	AFGradientCell *cell = (AFGradientCell *)[self cell];
 	
 	cell.cornerRadius = radius;
 	[cell drawBezelWithFrame:NSIntegralRect(handleBounds) inView:self];

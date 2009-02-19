@@ -16,6 +16,8 @@
 		5395C8170E6B144D00AF6C4B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5395C8140E6B144D00AF6C4B /* InfoPlist.strings */; };
 		539BFE8E0F1FE797003C1148 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539BFE8D0F1FE797003C1148 /* AppKit.framework */; };
 		539BFE930F1FE7DD003C1148 /* AmberKitAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539BFE7D0F1FE73F003C1148 /* AmberKitAdditions.framework */; };
+		53FD89040F4DF73E00536B83 /* AmberKitAdditions.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 539BFE7D0F1FE73F003C1148 /* AmberKitAdditions.framework */; };
+		53FD89050F4DF73E00536B83 /* AmberFoundation.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 531EE41C0E69FDFB00B358F0 /* AmberFoundation.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		53FD890A0F4DF75900536B83 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				53FD89040F4DF73E00536B83 /* AmberKitAdditions.framework in Copy Frameworks */,
+				53FD89050F4DF73E00536B83 /* AmberFoundation.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -83,7 +100,7 @@
 		5395C8150E6B144D00AF6C4B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = resources/Info.plist; sourceTree = "<group>"; };
 		539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Amber.xcodeproj; path = ../Amber/Amber.xcodeproj; sourceTree = SOURCE_ROOT; };
 		539BFE8D0F1FE797003C1148 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		8D1107320486CEB800E47090 /* KDStatusSliderButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDStatusSliderButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* AFSwitchControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFSwitchControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +154,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* KDStatusSliderButton.app */,
+				8D1107320486CEB800E47090 /* AFSwitchControl.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +222,7 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				53FD890A0F4DF75900536B83 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -214,7 +232,7 @@
 			name = AFSwitchControl;
 			productInstallPath = "$(HOME)/Applications";
 			productName = KDStatusSliderButton;
-			productReference = 8D1107320486CEB800E47090 /* KDStatusSliderButton.app */;
+			productReference = 8D1107320486CEB800E47090 /* AFSwitchControl.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -325,7 +343,8 @@
 				GCC_PREFIX_HEADER = SwitchControl_Prefix.pch;
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = KDStatusSliderButton;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_NAME = AFSwitchControl;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -340,7 +359,8 @@
 				GCC_PREFIX_HEADER = SwitchControl_Prefix.pch;
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = KDStatusSliderButton;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				PRODUCT_NAME = AFSwitchControl;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

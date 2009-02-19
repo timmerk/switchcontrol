@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface KDGradientCell : NSButtonCell {
+@interface AFGradientCell : NSButtonCell {
 	CGFloat _cornerRadius;
 }
 

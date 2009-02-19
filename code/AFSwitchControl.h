@@ -3,12 +3,12 @@
 //  KDStatusSliderButton
 //
 //  Created by Keith Duncan on 26/01/2008.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
+//  Copyright 2008 thirty-three. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 
-@interface KDSwitchControl : NSControl {
+@interface AFSwitchControl : NSControl {
 	NSMutableDictionary *_bindingInfo;
 	
 	float _floatValue;
@@ -17,6 +17,6 @@
 
 @end
 
-@interface KDSwitchControl (KDKeyValueBinding) <AFKeyValueBinding>
+@interface AFSwitchControl (KDKeyValueBinding) <AFKeyValueBinding>
 
 @end
