@@ -26,6 +26,7 @@
 
 @implementation AFSwitchControl
 
+@dynamic cell;
 @synthesize floatValue=_floatValue;
 
 + (void)initialize {
@@ -44,20 +45,10 @@
 	return [AFGradientCell class];
 }
 
-- (id)initWithFrame:(NSRect)frame {
-	[super initWithFrame:frame];
-	
-	[self setWantsLayer:YES];
-	
-	_bindingInfo = [[NSMutableDictionary alloc] init];
-	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NSApplicationDidBecomeActiveNotification object:NSApp];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NSApplicationDidResignActiveNotification object:NSApp];
-	
-	return self;
-}
-
 - (void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	
+	for (NSString *currentBinding in _bindingInfo) [self unbind:currentBinding];
 	[_bindingInfo release];
 	
 	[super dealloc];
@@ -112,7 +103,7 @@ NS_INLINE CGFloat BackgroundRadiusForRect(NSRect rect) {
 
 NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 	CGFloat knobWidth = NSWidth(slotRect)*(4.0/9.0);
-	return RectFromCentrePoint(NSMakePoint(NSMinX(slotRect) + (knobWidth/2.0) + (floatValue*(NSWidth(slotRect)-knobWidth)), NSMidY(slotRect)), NSMakeSize(knobWidth, NSHeight(slotRect)));
+	return AFRectFromCentrePoint(NSMakePoint(NSMinX(slotRect) + (knobWidth/2.0) + (floatValue*(NSWidth(slotRect)-knobWidth)), NSMidY(slotRect)), NSMakeSize(knobWidth, NSHeight(slotRect)));
 }
 
 - (void)drawRect:(NSRect)frame {
@@ -253,18 +244,21 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 @implementation AFSwitchControl (KDKeyValueBinding)
 
 - (id)infoForBinding:(NSString *)binding {
-	id info = [_bindingInfo objectForKey:binding];
+	id info = [_bindingInfo valueForKey:binding];
 	return (info != nil) ? info : [super infoForBinding:binding];
 }
 
 - (void)setInfo:(id)info forBinding:(NSString *)binding {
-	[_bindingInfo setObject:info forKey:binding];
+	if (_bindingInfo == nil)
+		_bindingInfo = [[NSMutableDictionary alloc] init];
+	
+	[_bindingInfo setValue:info forKey:binding];
 }
 
 void *SelectedIndexObservationContext = (void *)1000;
 
 - (void *)contextForBinding:(NSString *)binding {
-	if ([binding isEqualToString:NSValueBinding]) return SelectedIndexObservationContext;
+	if ([binding isEqualToString:NSValueBinding]) return &SelectedIndexObservationContext;
 	else return nil;
 }
 
@@ -282,7 +276,6 @@ void *SelectedIndexObservationContext = (void *)1000;
 		[observable addObserver:self forKeyPath:keyPath options:(NSKeyValueObservingOptionNew) context:context];
 		
 		[self setFloatValue:([self state] ? 1.0 : 0.0)];
-		
 		_floatValue = [[self valueForBinding:NSValueBinding] unsignedIntegerValue];
 	} else [super bind:binding toObject:observable withKeyPath:keyPath options:options];
 	
@@ -292,12 +285,12 @@ void *SelectedIndexObservationContext = (void *)1000;
 - (void)unbind:(NSString *)binding {
 	if ([binding isEqualToString:NSValueBinding]) {
 		[[self controllerForBinding:binding] removeObserver:self forKeyPath:[self keyPathForBinding:binding]];
-		[_bindingInfo removeObjectForKey:binding];
+		[self setInfo:nil forBinding:binding];
 	} else [super unbind:binding];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (context == SelectedIndexObservationContext) {
+    if (context == &SelectedIndexObservationContext) {
 		[[self animator] setFloatValue:[[self valueForBinding:NSValueBinding] unsignedIntegerValue]];
 	} else [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 	
@@ -310,11 +303,9 @@ void *SelectedIndexObservationContext = (void *)1000;
 
 - (void)_drawKnobInSlotRect:(NSRect)slotRect radius:(CGFloat)radius {
 	NSRect handleBounds = KnobRectForInsetBackground(slotRect, _floatValue);
-	
-	AFGradientCell *cell = (AFGradientCell *)[self cell];
-	
-	cell.cornerRadius = radius;
-	[cell drawBezelWithFrame:NSIntegralRect(handleBounds) inView:self];
+		
+	self.cell.cornerRadius = radius;
+	[self.cell drawBezelWithFrame:NSIntegralRect(handleBounds) inView:self];
 }
 
 @end

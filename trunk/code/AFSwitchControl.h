@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class AFGradientCell;
+
 @interface AFSwitchControl : NSControl {
 	NSMutableDictionary *_bindingInfo;
 	
@@ -15,8 +17,6 @@
 	CGFloat _cumulativeDelta;
 }
 
-@end
-
-@interface AFSwitchControl (KDKeyValueBinding) <AFKeyValueBinding>
+@property (readwrite, retain) AFGradientCell *cell;
 
 @end
