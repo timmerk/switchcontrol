@@ -13,8 +13,7 @@
 @interface AFSwitchControl : NSControl {
 	NSMutableDictionary *_bindingInfo;
 	
-	float _floatValue;
-	CGFloat _cumulativeDelta;
+	CGFloat _floatValue;
 }
 
 @property (readwrite, retain) AFGradientCell *cell;
