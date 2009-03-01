@@ -13,6 +13,8 @@
 
 #import "AFSwitchControl.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "AFGradientCell.h"
 
 @interface AFSwitchControl ()
@@ -129,7 +131,6 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 		
 		NSUInteger state = [[self valueForBinding:NSValueBinding] unsignedIntegerValue];
 	
-#if 1
 		if (state == NSOnState && [[NSApplication sharedApplication] isActive]) {
 			[[NSColor colorWithCalibratedRed:(25.0/255.0) green:(86.0/255.0) blue:(173.0/255.0) alpha:1.0] set];
 		} else {
@@ -137,9 +138,6 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 		}
 		
 		AKDrawStringAlignedInFrame(@"ON", [NSFont boldSystemFontOfSize:0], NSCenterTextAlignment, NSIntegralRect(textRects[1]));
-#else
-		[[NSGradient sourceListSelectionGradientIsKey:([self state] == NSOnState && [[self window] isKeyWindow])] drawInBezierPath:textPath angle:-90.0];
-#endif
 		
 		[NSGraphicsContext restoreGraphicsState];
 		[textShadow release];
@@ -229,7 +227,7 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 				
 				if (dragging) {
 					CGFloat value = (state ? 1.0 : 0.0) + ((state ? -1 : 1) * 0.25);
-					self.state =  (_floatValue >= value);
+					self.state = ((_floatValue >= value) ? NSOnState : NSOffState);
 				} else self.state = !state;
 				
 				loop = NO;
