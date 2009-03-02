@@ -18,8 +18,8 @@
 #import "AFGradientCell.h"
 
 @interface AFSwitchControl ()
-@property(assign) float floatValue;
-@property(assign) BOOL state;
+@property (assign) float floatValue;
+@property (assign) BOOL state;
 @end
 
 @interface AFSwitchControl (Private)
