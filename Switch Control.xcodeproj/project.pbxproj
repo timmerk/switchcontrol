@@ -69,14 +69,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 5370E0710F5B0571008F5991 /* CoreNetworking.framework */;
+			remoteGlobalIDString = 5370E0710F5B0571008F5991;
 			remoteInfo = CoreNetworking;
 		};
 		53BEF86E0F5C0C7500063B8D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 53BEF6A10F5B6A2700063B8D /* libCoreNetworking Touch.a */;
+			remoteGlobalIDString = 53BEF6A10F5B6A2700063B8D;
 			remoteInfo = "CoreNetworking Touch";
 		};
 /* End PBXContainerItemProxy section */
@@ -236,7 +236,7 @@
 				531EE41C0E69FDFB00B358F0 /* AmberFoundation.framework */,
 				539BFE7F0F1FE73F003C1148 /* libAmberFoundation.a */,
 				53BEF86D0F5C0C7500063B8D /* CoreNetworking.framework */,
-				53BEF86F0F5C0C7500063B8D /* libCoreNetworking Touch.a */,
+				53BEF86F0F5C0C7500063B8D /* libCoreNetworking.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -330,10 +330,10 @@
 			remoteRef = 53BEF86C0F5C0C7500063B8D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		53BEF86F0F5C0C7500063B8D /* libCoreNetworking Touch.a */ = {
+		53BEF86F0F5C0C7500063B8D /* libCoreNetworking.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = "libCoreNetworking Touch.a";
+			path = libCoreNetworking.a;
 			remoteRef = 53BEF86E0F5C0C7500063B8D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
