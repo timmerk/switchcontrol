@@ -6,6 +6,6 @@
     #import <Cocoa/Cocoa.h>
 	#import <QuartzCore/QuartzCore.h>
 
+	#import "AmberKit/AmberKit+Additions.h"
 	#import "AmberFoundation/AmberFoundation.h"
-	#import "AmberKitAdditions/AmberKitAdditions.h"
 #endif

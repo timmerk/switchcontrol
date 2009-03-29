@@ -16,8 +16,7 @@
 		5395C8160E6B144D00AF6C4B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5395C8130E6B144D00AF6C4B /* MainMenu.xib */; };
 		5395C8170E6B144D00AF6C4B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5395C8140E6B144D00AF6C4B /* InfoPlist.strings */; };
 		539BFE8E0F1FE797003C1148 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539BFE8D0F1FE797003C1148 /* AppKit.framework */; };
-		539BFE930F1FE7DD003C1148 /* AmberKitAdditions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539BFE7D0F1FE73F003C1148 /* AmberKitAdditions.framework */; };
-		53FD89040F4DF73E00536B83 /* AmberKitAdditions.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 539BFE7D0F1FE73F003C1148 /* AmberKitAdditions.framework */; };
+		53CC8B7F0F7FD68500ADF5CC /* libAmberKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5379187C0F7FD2B90064EB92 /* libAmberKit.a */; };
 		53FD89050F4DF73E00536B83 /* AmberFoundation.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 531EE41C0E69FDFB00B358F0 /* AmberFoundation.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -37,6 +36,13 @@
 			remoteGlobalIDString = 539A60C30D2698B7001CD14A;
 			remoteInfo = AmberFoundation;
 		};
+		5379187B0F7FD2B90064EB92 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 537917750F7FC43B0064EB92;
+			remoteInfo = "AmberKit (Additions)";
+		};
 		539BFE7A0F1FE73F003C1148 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
@@ -44,26 +50,12 @@
 			remoteGlobalIDString = 53EE97470F190070008AD8C0;
 			remoteInfo = AmberKit;
 		};
-		539BFE7C0F1FE73F003C1148 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 53692D070F1B90120051C367;
-			remoteInfo = "AmberKit Additions";
-		};
 		539BFE7E0F1FE73F003C1148 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 532F73DE0F0EB1AA004D6056;
 			remoteInfo = "AmberFoundation Touch";
-		};
-		539BFE8B0F1FE790003C1148 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 53692D060F1B90120051C367;
-			remoteInfo = "AmberKit Additions";
 		};
 		53BEF86C0F5C0C7500063B8D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -79,6 +71,20 @@
 			remoteGlobalIDString = 53BEF6A10F5B6A2700063B8D;
 			remoteInfo = "CoreNetworking Touch";
 		};
+		53CC8B7B0F7FD67700ADF5CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 537917740F7FC43B0064EB92 /* AmberKit (Additions) */;
+			remoteInfo = "AmberKit (Additions)";
+		};
+		53CC8B7D0F7FD67A00ADF5CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 539A60C20D2698B7001CD14A /* AmberFoundation */;
+			remoteInfo = AmberFoundation;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,7 +94,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				53FD89040F4DF73E00536B83 /* AmberKitAdditions.framework in Copy Frameworks */,
 				53FD89050F4DF73E00536B83 /* AmberFoundation.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -125,7 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				539BFE930F1FE7DD003C1148 /* AmberKitAdditions.framework in Frameworks */,
+				53CC8B7F0F7FD68500ADF5CC /* libAmberKit.a in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				535424430D4C0E9E00D3ED08 /* QuartzCore.framework in Frameworks */,
 				539BFE8E0F1FE797003C1148 /* AppKit.framework in Frameworks */,
@@ -232,7 +237,7 @@
 			children = (
 				531EE41A0E69FDFB00B358F0 /* Amber.framework */,
 				539BFE7B0F1FE73F003C1148 /* AmberKit.framework */,
-				539BFE7D0F1FE73F003C1148 /* AmberKitAdditions.framework */,
+				5379187C0F7FD2B90064EB92 /* libAmberKit.a */,
 				531EE41C0E69FDFB00B358F0 /* AmberFoundation.framework */,
 				539BFE7F0F1FE73F003C1148 /* libAmberFoundation.a */,
 				53BEF86D0F5C0C7500063B8D /* CoreNetworking.framework */,
@@ -256,7 +261,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				539BFE8C0F1FE790003C1148 /* PBXTargetDependency */,
+				53CC8B7C0F7FD67700ADF5CC /* PBXTargetDependency */,
+				53CC8B7E0F7FD67A00ADF5CC /* PBXTargetDependency */,
 			);
 			name = AFSwitchControl;
 			productInstallPath = "$(HOME)/Applications";
@@ -302,18 +308,18 @@
 			remoteRef = 531EE41B0E69FDFB00B358F0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		5379187C0F7FD2B90064EB92 /* libAmberKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAmberKit.a;
+			remoteRef = 5379187B0F7FD2B90064EB92 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		539BFE7B0F1FE73F003C1148 /* AmberKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = AmberKit.framework;
 			remoteRef = 539BFE7A0F1FE73F003C1148 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		539BFE7D0F1FE73F003C1148 /* AmberKitAdditions.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AmberKitAdditions.framework;
-			remoteRef = 539BFE7C0F1FE73F003C1148 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		539BFE7F0F1FE73F003C1148 /* libAmberFoundation.a */ = {
@@ -367,10 +373,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		539BFE8C0F1FE790003C1148 /* PBXTargetDependency */ = {
+		53CC8B7C0F7FD67700ADF5CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "AmberKit Additions";
-			targetProxy = 539BFE8B0F1FE790003C1148 /* PBXContainerItemProxy */;
+			name = "AmberKit (Additions)";
+			targetProxy = 53CC8B7B0F7FD67700ADF5CC /* PBXContainerItemProxy */;
+		};
+		53CC8B7E0F7FD67A00ADF5CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AmberFoundation;
+			targetProxy = 53CC8B7D0F7FD67A00ADF5CC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -388,6 +399,7 @@
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = AFSwitchControl;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
@@ -404,6 +416,7 @@
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = AFSwitchControl;
 				WRAPPER_EXTENSION = app;
 			};

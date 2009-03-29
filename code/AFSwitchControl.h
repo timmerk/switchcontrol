@@ -8,9 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "AmberKit/AFKeyValueBinding.h"
+
 @class AFGradientCell;
 
-@interface AFSwitchControl : NSControl {
+@interface AFSwitchControl : NSControl <AFKeyValueBinding> {
 	NSMutableDictionary *_bindingInfo;
 	
 	CGFloat _floatValue;
