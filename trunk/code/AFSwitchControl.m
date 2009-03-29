@@ -14,6 +14,7 @@
 #import "AFSwitchControl.h"
 
 #import <QuartzCore/QuartzCore.h>
+#import "AmberKit/AmberKit+Additions.h"
 
 #import "AFGradientCell.h"
 
