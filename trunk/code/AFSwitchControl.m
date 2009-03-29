@@ -238,10 +238,6 @@ NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 	}
 }
 
-@end
-
-@implementation AFSwitchControl (KDKeyValueBinding)
-
 - (id)infoForBinding:(NSString *)binding {
 	id info = [_bindingInfo valueForKey:binding];
 	return (info != nil) ? info : [super infoForBinding:binding];

@@ -8,6 +8,8 @@
 
 #import "AFGradientCell.h"
 
+#import "AmberKit/AmberKit+Additions.h"
+
 @implementation AFGradientCell
 
 @synthesize cornerRadius=_cornerRadius;

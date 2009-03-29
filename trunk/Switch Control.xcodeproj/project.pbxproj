@@ -75,14 +75,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 537917740F7FC43B0064EB92 /* AmberKit (Additions) */;
+			remoteGlobalIDString = 537917740F7FC43B0064EB92;
 			remoteInfo = "AmberKit (Additions)";
 		};
 		53CC8B7D0F7FD67A00ADF5CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 539A60C20D2698B7001CD14A /* AmberFoundation */;
+			remoteGlobalIDString = 539A60C20D2698B7001CD14A;
 			remoteInfo = AmberFoundation;
 		};
 /* End PBXContainerItemProxy section */
