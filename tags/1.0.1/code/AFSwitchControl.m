@@ -106,7 +106,11 @@ NS_INLINE CGFloat BackgroundRadiusForRect(NSRect rect) {
 
 NS_INLINE NSRect KnobRectForInsetBackground(NSRect slotRect, float floatValue) {
 	CGFloat knobWidth = NSWidth(slotRect)*(4.0/9.0);
-	return AFPointCenteredSize(NSMakePoint(NSMinX(slotRect) + (knobWidth/2.0) + (floatValue*(NSWidth(slotRect)-knobWidth)), NSMidY(slotRect)), NSMakeSize(knobWidth, NSHeight(slotRect)));
+	CGSize knobSize = NSMakeSize(knobWidth, NSHeight(slotRect));
+	
+	CGPoint knobCenter = NSMakePoint(NSMinX(slotRect) + (knobWidth/2.0) + (floatValue*(NSWidth(slotRect)-knobWidth)), NSMidY(slotRect));
+	
+	return AFSizeCenteredAroundPoint(knobSize, knobCenter);
 }
 
 - (void)drawRect:(NSRect)frame {
