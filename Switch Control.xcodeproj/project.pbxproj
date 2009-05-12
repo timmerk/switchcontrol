@@ -396,6 +396,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SwitchControl_Prefix.pch;
+				HEADER_SEARCH_PATHS = "\"$(CONFIGURATION_BUILD_DIR)\"/usr/**";
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
@@ -413,6 +414,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SwitchControl_Prefix.pch;
+				HEADER_SEARCH_PATHS = "\"$(CONFIGURATION_BUILD_DIR)\"/usr/**";
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
