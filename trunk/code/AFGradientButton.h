@@ -10,6 +10,9 @@
 
 @class AFGradientCell;
 
+/*
+	@brief	This class draws a <em>very</em> simple button with a gradient and rounded corners.
+ */
 @interface AFGradientButton : NSButton
 
 @property (retain) AFGradientCell *cell;
