@@ -1,6 +1,6 @@
 //
-//  KDGradientButtonCell.m
-//  KDSliderControl
+//  AFGradientCell.m
+//  AFSwitchControl
 //
 //  Created by Keith Duncan on 06/07/2008.
 //  Copyright 2008 thirty-three software. All rights reserved.
@@ -37,7 +37,7 @@
 - (void)drawBezelWithFrame:(NSRect)frame inView:(NSView *)view {
 	[NSGraphicsContext saveGraphicsState];
 	
-	NSBezierPath *handle = [NSBezierPath bezierPathWithRoundedRect:frame xRadius:_cornerRadius yRadius:_cornerRadius];
+	NSBezierPath *handle = [NSBezierPath bezierPathWithRoundedRect:frame xRadius:self.cornerRadius yRadius:self.cornerRadius];
 	
 	NSGradient *handleGradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedWhite:(252.0/255.0) alpha:1.0] endingColor:[NSColor colorWithCalibratedWhite:(214.0/255.0) alpha:1.0]];
 	[handleGradient drawInBezierPath:handle angle:([self isHighlighted] ? 90 : -90)];

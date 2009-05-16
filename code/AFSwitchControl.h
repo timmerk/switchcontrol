@@ -1,6 +1,6 @@
 //
-//  KDSliderButton.h
-//  KDStatusSliderButton
+//  AFSwitchControl.h
+//  AFSwitchControl
 //
 //  Created by Keith Duncan on 26/01/2008.
 //  Copyright 2008 thirty-three. All rights reserved.

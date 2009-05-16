@@ -1,6 +1,6 @@
 //
-//  KDGradientButton.m
-//  KDSliderControl
+//  AFGradientButton.m
+//  AFGradientButton
 //
 //  Created by Keith Duncan on 06/07/2008.
 //  Copyright 2008 thirty-three software. All rights reserved.
@@ -12,6 +12,8 @@
 
 @implementation AFGradientButton
 
+@dynamic cell;
+
 + (Class)cellClass {
 	return [AFGradientCell class];
 }
@@ -21,7 +23,7 @@
 }
 
 - (void)drawRect:(NSRect)frame {	
-	((AFGradientCell *)_cell).cornerRadius = NSHeight(frame)/6.0;
+	[self cell].cornerRadius = NSHeight(frame)/6.0;
 	
 	[super drawRect:frame];
 }
