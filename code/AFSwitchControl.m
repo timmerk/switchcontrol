@@ -24,8 +24,7 @@ NSSTRING_CONTEXT(AFSwitchControlSelectedIndexObservationContext);
 
 @interface AFSwitchControl ()
 @property (readwrite, retain) NSMutableDictionary *bindingInfo;
-@property (assign) CGFloat floatValue;
-@property (assign) BOOL state;
+@property (assign) CGFloat offset;
 @end
 
 @interface AFSwitchControl (Private)
@@ -36,14 +35,14 @@ NSSTRING_CONTEXT(AFSwitchControlSelectedIndexObservationContext);
 
 @dynamic cell;
 @synthesize bindingInfo=_bindingInfo;
-@synthesize floatValue=_floatValue;
+@synthesize offset=_offset;
 
 + (void)initialize {
 	[self exposeBinding:NSValueBinding];
 }
 
 + (id)defaultAnimationForKey:(NSString *)key {
-	if ([key isEqualToString:@"floatValue"]) {
+	if ([key isEqualToString:@"offset"]) {
 		id animation = [CABasicAnimation animation];
 		[animation setDuration:0.15];
 		return animation;
@@ -63,8 +62,8 @@ NSSTRING_CONTEXT(AFSwitchControlSelectedIndexObservationContext);
 	[super dealloc];
 }
 
-- (void)setFloatValue:(CGFloat)value {		
-	Ivar valueIvar = object_getInstanceVariable(self, "_floatValue", NULL);
+- (void)setOffset:(CGFloat)value {		
+	Ivar valueIvar = object_getInstanceVariable(self, "_offset", NULL);
 	ptrdiff_t offset = ivar_getOffset(valueIvar);
 	
 	CGFloat *valueRef = (void *)((int8_t *)self + offset);
@@ -73,12 +72,16 @@ NSSTRING_CONTEXT(AFSwitchControlSelectedIndexObservationContext);
 	[self setNeedsDisplay:YES];
 }
 
-- (BOOL)state {
-	return [[self valueForBinding:NSValueBinding] boolValue];
+- (NSUInteger)state {
+	return ([[self valueForBinding:NSValueBinding] boolValue] ? NSOnState : NSOffState);
 }
 
-- (void)setState:(BOOL)value {
-	[self setValue:[NSNumber numberWithBool:value] forBinding:NSValueBinding];
+- (void)setState:(NSUInteger)value {
+	[self setValue:[NSNumber numberWithInteger:value] forBinding:NSValueBinding];
+}
+
+- (void)_updateViewForKeyStatusChange:(NSNotification *)notification {
+	[self setNeedsDisplay:YES];
 }
 
 - (void)viewWillMoveToSuperview:(NSView *)view {
@@ -88,8 +91,8 @@ NSSTRING_CONTEXT(AFSwitchControlSelectedIndexObservationContext);
 	[super viewWillMoveToSuperview:view];
 	if (view == nil) return;
 	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NSWindowDidResignKeyNotification object:[view window]];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NSWindowDidBecomeKeyNotification object:[view window]];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_updateViewForKeyStatusChange:) name:NSWindowDidResignKeyNotification object:[view window]];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_updateViewForKeyStatusChange:) name:NSWindowDidBecomeKeyNotification object:[view window]];
 }
 
 NS_INLINE NSRect _AFSwitchControlInsetTextRect(NSRect textRect) {
@@ -144,9 +147,7 @@ NS_INLINE NSRect _AFSwitchControlKnobRectForInsetBackground(NSRect slotRect, CGF
 		[NSGraphicsContext saveGraphicsState];
 		[textShadow set];
 		
-		NSUInteger state = [[self valueForBinding:NSValueBinding] unsignedIntegerValue];
-	
-		if (state == NSOnState && [[NSApplication sharedApplication] isActive]) {
+		if (self.state == NSOnState && [self shouldDrawKey]) {
 			[[NSColor colorWithCalibratedRed:(25.0/255.0) green:(86.0/255.0) blue:(173.0/255.0) alpha:1.0] set];
 		} else {
 			[[NSColor colorWithCalibratedWhite:(74.0/255.0) alpha:1.0] set];
@@ -196,13 +197,13 @@ NS_INLINE NSRect _AFSwitchControlKnobRectForInsetBackground(NSRect slotRect, CGF
 	_AFSwitchControlPartRects([self bounds], &textRect, &backgroundRect);
 	
 	NSRect slotRect = _AFSwitchControlInsetBackgroundRect(backgroundRect);
-	NSRect knobRect = _AFSwitchControlKnobRectForInsetBackground(slotRect, _floatValue);
+	NSRect knobRect = _AFSwitchControlKnobRectForInsetBackground(slotRect, _offset);
 	
-	BOOL state = self.state;
+	NSUInteger state = self.state;
 	NSPoint hitPoint = [self convertPoint:[event locationInWindow] fromView:nil];
 	
 	if (![self mouse:hitPoint inRect:knobRect]) {
-		if ((state == NSOffState && NSMaxX(knobRect) < hitPoint.x) || (state == NSOnState && NSMinX(knobRect) > hitPoint.x)) [self setValue:[NSNumber numberWithUnsignedInteger:!state] forBinding:NSValueBinding];
+		if ((state == NSOffState && NSMaxX(knobRect) < hitPoint.x) || (state == NSOnState && NSMinX(knobRect) > hitPoint.x)) [self setState:!state];
 		return;
 	}
 	
@@ -233,7 +234,7 @@ NS_INLINE NSRect _AFSwitchControlKnobRectForInsetBackground(NSRect slotRect, CGF
 				else
 					newFloat = (newPosition-minPosition)/(maxPosition - minPosition);
 				
-				self.floatValue = newFloat;
+				self.offset = newFloat;
 				break;
 			}
 			case NSLeftMouseUp:
@@ -242,7 +243,7 @@ NS_INLINE NSRect _AFSwitchControlKnobRectForInsetBackground(NSRect slotRect, CGF
 				
 				if (dragging) {
 					CGFloat value = (state ? 1.0 : 0.0) + ((state ? -1 : 1) * 0.25);
-					self.state = ((_floatValue >= value) ? NSOnState : NSOffState);
+					self.state = ((self.offset >= value) ? NSOnState : NSOffState);
 				} else self.state = !state;
 				
 				loop = NO;
@@ -282,7 +283,7 @@ NS_INLINE NSRect _AFSwitchControlKnobRectForInsetBackground(NSRect slotRect, CGF
 		[self setInfo:info forBinding:binding];
 		[observable addObserver:self forKeyPath:keyPath options:(NSKeyValueObservingOptionNew) context:context];
 		
-		[self setFloatValue:(CGFloat)[[self valueForBinding:NSValueBinding] unsignedIntegerValue]];
+		[self setOffset:(CGFloat)[self state]];
 	} else [super bind:binding toObject:observable withKeyPath:keyPath options:options];
 	
 	[self setNeedsDisplay:YES];
@@ -297,7 +298,7 @@ NS_INLINE NSRect _AFSwitchControlKnobRectForInsetBackground(NSRect slotRect, CGF
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if (context == &AFSwitchControlSelectedIndexObservationContext) {
-		[[self animator] setFloatValue:[[self valueForBinding:NSValueBinding] unsignedIntegerValue]];
+		[[self animator] setOffset:[[object valueForKeyPath:keyPath] boolValue]];
 	} else [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 	
 	[self setNeedsDisplay:YES];
@@ -308,7 +309,7 @@ NS_INLINE NSRect _AFSwitchControlKnobRectForInsetBackground(NSRect slotRect, CGF
 @implementation AFSwitchControl (Private)
 
 - (void)_drawKnobInSlotRect:(NSRect)slotRect radius:(CGFloat)radius {
-	NSRect handleBounds = _AFSwitchControlKnobRectForInsetBackground(slotRect, self.floatValue);
+	NSRect handleBounds = _AFSwitchControlKnobRectForInsetBackground(slotRect, self.offset);
 		
 	self.cell.cornerRadius = radius;
 	[self.cell drawBezelWithFrame:NSIntegralRect(handleBounds) inView:self];
