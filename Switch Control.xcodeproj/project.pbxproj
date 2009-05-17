@@ -206,9 +206,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5395C8130E6B144D00AF6C4B /* MainMenu.xib */,
-				5395C8140E6B144D00AF6C4B /* InfoPlist.strings */,
 				5395C8150E6B144D00AF6C4B /* Info.plist */,
+				5395C8140E6B144D00AF6C4B /* InfoPlist.strings */,
+				5395C8130E6B144D00AF6C4B /* MainMenu.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
