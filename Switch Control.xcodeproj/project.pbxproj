@@ -102,8 +102,8 @@
 		531EE40E0E69FDE200B358F0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		531EE40F0E69FDE200B358F0 /* SwitchControl_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchControl_Prefix.pch; sourceTree = "<group>"; };
 		535424420D4C0E9E00D3ED08 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
-		535C1956117B132800F7B978 /* AmberKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AmberKit.xcodeproj; path = ../../Amber/AmberKit/AmberKit.xcodeproj; sourceTree = SOURCE_ROOT; };
-		535C197B117B133100F7B978 /* AmberFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AmberFoundation.xcodeproj; path = ../../Amber/AmberFoundation/AmberFoundation.xcodeproj; sourceTree = SOURCE_ROOT; };
+		535C1956117B132800F7B978 /* AmberKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AmberKit.xcodeproj; path = ../Amber/AmberKit/AmberKit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		535C197B117B133100F7B978 /* AmberFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AmberFoundation.xcodeproj; path = ../Amber/AmberFoundation/AmberFoundation.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5395C8130E6B144D00AF6C4B /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainMenu.xib; path = resources/MainMenu.xib; sourceTree = "<group>"; };
 		5395C8140E6B144D00AF6C4B /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = resources/InfoPlist.strings; sourceTree = "<group>"; };
 		5395C8150E6B144D00AF6C4B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = resources/Info.plist; sourceTree = "<group>"; };
