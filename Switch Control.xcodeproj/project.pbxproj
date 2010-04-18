@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		530BC6A80F589ACA0086222F /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530BC6A70F589ACA0086222F /* ApplicationController.m */; };
+		530BC8A8117B1A5300AD8017 /* AmberFoundation.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 535C1981117B133100F7B978 /* AmberFoundation.framework */; };
 		531EE4080E69F91000B358F0 /* AFGradientCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 531EE4030E69F91000B358F0 /* AFGradientCell.m */; };
 		531EE4090E69F91000B358F0 /* AFGradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 531EE4040E69F91000B358F0 /* AFGradientButton.m */; };
 		531EE40A0E69F91000B358F0 /* AFSwitchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 531EE4060E69F91000B358F0 /* AFSwitchControl.m */; };
@@ -80,6 +81,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				530BC8A8117B1A5300AD8017 /* AmberFoundation.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,7 +373,6 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = AFSwitchControl;
-				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -398,7 +399,6 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = AFSwitchControl;
-				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -407,12 +407,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					i386,
 					x86_64,
+					i386,
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
@@ -422,8 +423,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					i386,
 					x86_64,
+					i386,
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
