@@ -15,12 +15,14 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
-#import "AmberKit/AmberKit+Additions.h"
+#import "CoreAmberKit/CoreAmberKit.h"
 #import "AmberFoundation/AmberFoundation.h"
 
 #import "AFGradientCell.h"
 
-NSSTRING_CONTEXT(AFSwitchControlSelectedIndexObservationContext);
+NSSTRING_CONTEXT(_AFSwitchControlSelectedIndexObservationContext);
+
+static NSString *const _AFSwitchControlOffsetKey = @"offset";
 
 @interface AFSwitchControl ()
 @property (readwrite, retain) NSMutableDictionary *bindingInfo;
@@ -42,7 +44,7 @@ NSSTRING_CONTEXT(AFSwitchControlSelectedIndexObservationContext);
 }
 
 + (id)defaultAnimationForKey:(NSString *)key {
-	if ([key isEqualToString:@"offset"]) {
+	if ([key isEqualToString:_AFSwitchControlOffsetKey]) {
 		id animation = [CABasicAnimation animation];
 		[animation setDuration:0.15];
 		return animation;
@@ -63,20 +65,16 @@ NSSTRING_CONTEXT(AFSwitchControlSelectedIndexObservationContext);
 }
 
 - (void)setOffset:(CGFloat)value {		
-	Ivar valueIvar = object_getInstanceVariable(self, "_offset", NULL);
-	ptrdiff_t offset = ivar_getOffset(valueIvar);
-	
-	CGFloat *valueRef = (void *)((int8_t *)self + offset);
-	*valueRef = value;
+	_offset = value;
 	
 	[self setNeedsDisplay:YES];
 }
 
-- (NSUInteger)state {
+- (NSInteger)state {
 	return ([[self valueForBinding:NSValueBinding] boolValue] ? NSOnState : NSOffState);
 }
 
-- (void)setState:(NSUInteger)value {
+- (void)setState:(NSInteger)value {
 	[self setValue:[NSNumber numberWithInteger:value] forBinding:NSValueBinding];
 }
 
@@ -259,14 +257,12 @@ NS_INLINE NSRect _AFSwitchControlKnobRectForInsetBackground(NSRect slotRect, CGF
 }
 
 - (void)setInfo:(id)info forBinding:(NSString *)binding {
-	if (self.bindingInfo == nil)
-		self.bindingInfo = [NSMutableDictionary dictionary];
-	
+	if (_bindingInfo == nil) _bindingInfo = [[NSMutableDictionary alloc] init];
 	[self.bindingInfo setValue:info forKey:binding];
 }
 
 - (void *)contextForBinding:(NSString *)binding {
-	if ([binding isEqualToString:NSValueBinding]) return &AFSwitchControlSelectedIndexObservationContext;
+	if ([binding isEqualToString:NSValueBinding]) return &_AFSwitchControlSelectedIndexObservationContext;
 	else return nil;
 }
 
@@ -277,7 +273,8 @@ NS_INLINE NSRect _AFSwitchControlKnobRectForInsetBackground(NSRect slotRect, CGF
 	NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:
 						  observable, NSObservedObjectKey,
 						  [[keyPath copy] autorelease], NSObservedKeyPathKey,
-						  [[options copy] autorelease], NSOptionsKey, nil];
+						  [[options copy] autorelease], NSOptionsKey,
+						  nil];
 	
 	if ([binding isEqualToString:NSValueBinding]) {
 		[self setInfo:info forBinding:binding];
@@ -297,7 +294,7 @@ NS_INLINE NSRect _AFSwitchControlKnobRectForInsetBackground(NSRect slotRect, CGF
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if (context == &AFSwitchControlSelectedIndexObservationContext) {
+    if (context == &_AFSwitchControlSelectedIndexObservationContext) {
 		[[self animator] setOffset:[[object valueForKeyPath:keyPath] boolValue]];
 	} else [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 	

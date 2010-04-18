@@ -8,7 +8,7 @@
 
 #import "AFGradientCell.h"
 
-#import "AmberKit/AmberKit+Additions.h"
+#import "CoreAmberKit/CoreAmberKit.h"
 
 @implementation AFGradientCell
 

@@ -8,12 +8,14 @@
 
 #import "ApplicationController.h"
 
+#import "AmberFoundation/AmberFoundation.h"
+
 @implementation ApplicationController
 
-@dynamic control;
+@synthesize control;
 
 - (void)awakeFromNib {
-	[control bind:NSValueBinding toObject:[NSUserDefaultsController sharedUserDefaultsController] withKeyPath:@"values.importantOption" options:nil];
+	[[self control] bind:NSValueBinding toObject:[NSUserDefaultsController sharedUserDefaultsController] withKeyPath:[NSString stringWithKeyPathComponents:@"values", @"importantOption", nil] options:nil];
 }
 
 @end

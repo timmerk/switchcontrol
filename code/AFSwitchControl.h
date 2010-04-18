@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "AmberKit/AFKeyValueBinding.h"
+#import "CoreAmberKit/AFKeyValueBinding.h"
 
 @class AFGradientCell;
 
@@ -22,6 +22,7 @@
 			to <tt>-boolValue</tt> which determines the current state of the button.
  */
 @interface AFSwitchControl : NSControl <AFKeyValueBinding> {
+ @private
 	NSMutableDictionary *_bindingInfo;
 	CGFloat _offset;
 }
@@ -29,8 +30,9 @@
 @property (readwrite, retain) AFGradientCell *cell;
 
 /*
-	@result	The button state values, NSOnState or NSOffState.
+	@result
+	The button state values, NSOnState or NSOffState.
  */
-@property (assign) NSUInteger state;
+@property (assign) NSInteger state;
 
 @end
