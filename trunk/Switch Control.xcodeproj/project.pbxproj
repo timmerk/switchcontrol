@@ -13,77 +13,63 @@
 		531EE40A0E69F91000B358F0 /* AFSwitchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 531EE4060E69F91000B358F0 /* AFSwitchControl.m */; };
 		531EE4100E69FDE200B358F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 531EE40E0E69FDE200B358F0 /* main.m */; };
 		535424430D4C0E9E00D3ED08 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535424420D4C0E9E00D3ED08 /* QuartzCore.framework */; };
+		535C1B09117B134400F7B978 /* AmberFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 535C1981117B133100F7B978 /* AmberFoundation.framework */; };
+		535C1B0A117B134800F7B978 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
+		535C1B0B117B134800F7B978 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
+		535C1B0C117B134C00F7B978 /* libCoreAmberKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 535C197A117B132800F7B978 /* libCoreAmberKit.a */; };
 		5395C8160E6B144D00AF6C4B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5395C8130E6B144D00AF6C4B /* MainMenu.xib */; };
 		5395C8170E6B144D00AF6C4B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5395C8140E6B144D00AF6C4B /* InfoPlist.strings */; };
-		539BFE8E0F1FE797003C1148 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 539BFE8D0F1FE797003C1148 /* AppKit.framework */; };
-		53CC8B7F0F7FD68500ADF5CC /* libAmberKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5379187C0F7FD2B90064EB92 /* libAmberKit.a */; };
-		53FD89050F4DF73E00536B83 /* AmberFoundation.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 531EE41C0E69FDFB00B358F0 /* AmberFoundation.framework */; };
-		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		531EE4190E69FDFB00B358F0 /* PBXContainerItemProxy */ = {
+		535C1975117B132800F7B978 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5343E70E0C21FB4200B63E6E;
-			remoteInfo = Amber;
-		};
-		531EE41B0E69FDFB00B358F0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 539A60C30D2698B7001CD14A;
-			remoteInfo = AmberFoundation;
-		};
-		5379187B0F7FD2B90064EB92 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 537917750F7FC43B0064EB92;
-			remoteInfo = "AmberKit (Additions)";
-		};
-		539BFE7A0F1FE73F003C1148 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
+			containerPortal = 535C1956117B132800F7B978 /* AmberKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 53EE97470F190070008AD8C0;
 			remoteInfo = AmberKit;
 		};
-		539BFE7E0F1FE73F003C1148 /* PBXContainerItemProxy */ = {
+		535C1977117B132800F7B978 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
+			containerPortal = 535C1956117B132800F7B978 /* AmberKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53599FA610A86D900064F48C;
+			remoteInfo = "AmberKit Touch";
+		};
+		535C1979117B132800F7B978 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 535C1956117B132800F7B978 /* AmberKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 537917750F7FC43B0064EB92;
+			remoteInfo = CoreAmberKit;
+		};
+		535C1980117B133100F7B978 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 535C197B117B133100F7B978 /* AmberFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 539A60C30D2698B7001CD14A;
+			remoteInfo = AmberFoundation;
+		};
+		535C1982117B133100F7B978 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 535C197B117B133100F7B978 /* AmberFoundation.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 532F73DE0F0EB1AA004D6056;
 			remoteInfo = "AmberFoundation Touch";
 		};
-		53BEF86C0F5C0C7500063B8D /* PBXContainerItemProxy */ = {
+		535C1B0D117B138100F7B978 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5370E0710F5B0571008F5991;
-			remoteInfo = CoreNetworking;
-		};
-		53BEF86E0F5C0C7500063B8D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 53BEF6A10F5B6A2700063B8D;
-			remoteInfo = "CoreNetworking Touch";
-		};
-		53CC8B7B0F7FD67700ADF5CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 537917740F7FC43B0064EB92;
-			remoteInfo = "AmberKit (Additions)";
-		};
-		53CC8B7D0F7FD67A00ADF5CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
+			containerPortal = 535C197B117B133100F7B978 /* AmberFoundation.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 539A60C20D2698B7001CD14A;
 			remoteInfo = AmberFoundation;
+		};
+		535C1B0F117B138400F7B978 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 535C1956117B132800F7B978 /* AmberKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 537917740F7FC43B0064EB92;
+			remoteInfo = CoreAmberKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -94,7 +80,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				53FD89050F4DF73E00536B83 /* AmberFoundation.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,8 +87,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		530BC6A60F589ACA0086222F /* ApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationController.h; sourceTree = "<group>"; };
@@ -117,11 +100,11 @@
 		531EE40E0E69FDE200B358F0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		531EE40F0E69FDE200B358F0 /* SwitchControl_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchControl_Prefix.pch; sourceTree = "<group>"; };
 		535424420D4C0E9E00D3ED08 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		535C1956117B132800F7B978 /* AmberKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AmberKit.xcodeproj; path = ../../Amber/AmberKit/AmberKit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		535C197B117B133100F7B978 /* AmberFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AmberFoundation.xcodeproj; path = ../../Amber/AmberFoundation/AmberFoundation.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5395C8130E6B144D00AF6C4B /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainMenu.xib; path = resources/MainMenu.xib; sourceTree = "<group>"; };
 		5395C8140E6B144D00AF6C4B /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = resources/InfoPlist.strings; sourceTree = "<group>"; };
 		5395C8150E6B144D00AF6C4B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = resources/Info.plist; sourceTree = "<group>"; };
-		539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Amber.xcodeproj; path = ../Amber/Amber.xcodeproj; sourceTree = SOURCE_ROOT; };
-		539BFE8D0F1FE797003C1148 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		8D1107320486CEB800E47090 /* AFSwitchControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AFSwitchControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,10 +113,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53CC8B7F0F7FD68500ADF5CC /* libAmberKit.a in Frameworks */,
-				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				535C1B0A117B134800F7B978 /* AppKit.framework in Frameworks */,
+				535C1B0B117B134800F7B978 /* Foundation.framework in Frameworks */,
+				535C1B0C117B134C00F7B978 /* libCoreAmberKit.a in Frameworks */,
+				535C1B09117B134400F7B978 /* AmberFoundation.framework in Frameworks */,
 				535424430D4C0E9E00D3ED08 /* QuartzCore.framework in Frameworks */,
-				539BFE8E0F1FE797003C1148 /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,26 +135,6 @@
 				531EE4030E69F91000B358F0 /* AFGradientCell.m */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				539BFE8D0F1FE797003C1148 /* AppKit.framework */,
-				535424420D4C0E9E00D3ED08 /* QuartzCore.framework */,
-				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
-			);
-			name = "Linked Frameworks";
-			sourceTree = "<group>";
-		};
-		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
-				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
-				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -216,9 +180,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */,
-				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
-				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				535424420D4C0E9E00D3ED08 /* QuartzCore.framework */,
+				535C1956117B132800F7B978 /* AmberKit.xcodeproj */,
+				535C197B117B133100F7B978 /* AmberFoundation.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -232,16 +198,21 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		531EE4140E69FDFB00B358F0 /* Products */ = {
+		535C1957117B132800F7B978 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				531EE41A0E69FDFB00B358F0 /* Amber.framework */,
-				539BFE7B0F1FE73F003C1148 /* AmberKit.framework */,
-				5379187C0F7FD2B90064EB92 /* libAmberKit.a */,
-				531EE41C0E69FDFB00B358F0 /* AmberFoundation.framework */,
-				539BFE7F0F1FE73F003C1148 /* libAmberFoundation.a */,
-				53BEF86D0F5C0C7500063B8D /* CoreNetworking.framework */,
-				53BEF86F0F5C0C7500063B8D /* libCoreNetworking.a */,
+				535C1976117B132800F7B978 /* AmberKit.framework */,
+				535C1978117B132800F7B978 /* libAmberKit.a */,
+				535C197A117B132800F7B978 /* libCoreAmberKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		535C197C117B133100F7B978 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				535C1981117B133100F7B978 /* AmberFoundation.framework */,
+				535C1983117B133100F7B978 /* libAmberFoundation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,8 +232,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				53CC8B7C0F7FD67700ADF5CC /* PBXTargetDependency */,
-				53CC8B7E0F7FD67A00ADF5CC /* PBXTargetDependency */,
+				535C1B0E117B138100F7B978 /* PBXTargetDependency */,
+				535C1B10117B138400F7B978 /* PBXTargetDependency */,
 			);
 			name = AFSwitchControl;
 			productInstallPath = "$(HOME)/Applications";
@@ -282,8 +253,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 531EE4140E69FDFB00B358F0 /* Products */;
-					ProjectRef = 539B6E3F0D4BAE1700C86E48 /* Amber.xcodeproj */;
+					ProductGroup = 535C197C117B133100F7B978 /* Products */;
+					ProjectRef = 535C197B117B133100F7B978 /* AmberFoundation.xcodeproj */;
+				},
+				{
+					ProductGroup = 535C1957117B132800F7B978 /* Products */;
+					ProjectRef = 535C1956117B132800F7B978 /* AmberKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -294,53 +269,39 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		531EE41A0E69FDFB00B358F0 /* Amber.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Amber.framework;
-			remoteRef = 531EE4190E69FDFB00B358F0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		531EE41C0E69FDFB00B358F0 /* AmberFoundation.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AmberFoundation.framework;
-			remoteRef = 531EE41B0E69FDFB00B358F0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5379187C0F7FD2B90064EB92 /* libAmberKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAmberKit.a;
-			remoteRef = 5379187B0F7FD2B90064EB92 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		539BFE7B0F1FE73F003C1148 /* AmberKit.framework */ = {
+		535C1976117B132800F7B978 /* AmberKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = AmberKit.framework;
-			remoteRef = 539BFE7A0F1FE73F003C1148 /* PBXContainerItemProxy */;
+			remoteRef = 535C1975117B132800F7B978 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		539BFE7F0F1FE73F003C1148 /* libAmberFoundation.a */ = {
+		535C1978117B132800F7B978 /* libAmberKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAmberKit.a;
+			remoteRef = 535C1977117B132800F7B978 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		535C197A117B132800F7B978 /* libCoreAmberKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCoreAmberKit.a;
+			remoteRef = 535C1979117B132800F7B978 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		535C1981117B133100F7B978 /* AmberFoundation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AmberFoundation.framework;
+			remoteRef = 535C1980117B133100F7B978 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		535C1983117B133100F7B978 /* libAmberFoundation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAmberFoundation.a;
-			remoteRef = 539BFE7E0F1FE73F003C1148 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		53BEF86D0F5C0C7500063B8D /* CoreNetworking.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CoreNetworking.framework;
-			remoteRef = 53BEF86C0F5C0C7500063B8D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		53BEF86F0F5C0C7500063B8D /* libCoreNetworking.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCoreNetworking.a;
-			remoteRef = 53BEF86E0F5C0C7500063B8D /* PBXContainerItemProxy */;
+			remoteRef = 535C1982117B133100F7B978 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -373,15 +334,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		53CC8B7C0F7FD67700ADF5CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "AmberKit (Additions)";
-			targetProxy = 53CC8B7B0F7FD67700ADF5CC /* PBXContainerItemProxy */;
-		};
-		53CC8B7E0F7FD67A00ADF5CC /* PBXTargetDependency */ = {
+		535C1B0E117B138100F7B978 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AmberFoundation;
-			targetProxy = 53CC8B7D0F7FD67A00ADF5CC /* PBXContainerItemProxy */;
+			targetProxy = 535C1B0D117B138100F7B978 /* PBXContainerItemProxy */;
+		};
+		535C1B10117B138400F7B978 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CoreAmberKit;
+			targetProxy = 535C1B0F117B138400F7B978 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -389,9 +350,14 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					x86_64,
+					i386,
+				);
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -400,8 +366,12 @@
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = AFSwitchControl;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -410,7 +380,12 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					x86_64,
+					i386,
+				);
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SwitchControl_Prefix.pch;
@@ -418,8 +393,12 @@
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = AFSwitchControl;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -427,11 +406,15 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};
@@ -439,14 +422,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					ppc,
 					i386,
+					x86_64,
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Release;
 		};
